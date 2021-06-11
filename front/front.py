@@ -1,34 +1,42 @@
 import streamlit as st
-import tensorflow as tf
-from book_woofer.predict import *
+import requests
+import matplotlib.pyplot as plt
+from ebook import *
+import io
+
 
 st.title('books and woofers')
 
-# imported = load_model('../models/model3')
-# model = keras.models.load_model('../models/model3/saved_model.pb')
-#------------------------------------------------------
-#   functions 
-#------------------------------------------------------
+# uploaded_file = st.file_uploader("Choose an ebook")
+
+uploaded_file = st.file_uploader("Choose a file")
+if uploaded_file is None:
+    st.text("Where is your file?")
+else:
+    g = io.BytesIO(uploaded_file.read())  # BytesIO Object
+    temporary_location = "temp.epub"
+    with open(temporary_location, 'wb') as out:  # Open temporary file as bytes
+        out.write(g.read())  # Read bytes into file
+        # close file
+        out.close()
+    ready = KindleText("temp.epub").epub2text()
+    st.text(ready[0])
 
 user_input = st.text_input('Enter a sentence : ')
 
-predict(str(user_input))
+#====================Send request and print prediction
 
-#------------------------------------------------------
-#   streamlit 
-#------------------------------------------------------
+texts =  {'text' : user_input}
+url = "https://bfcontainer-csy3ocxwaq-ew.a.run.app/predict/"
+response = requests.post(
+    url,
+    params=texts,
+).json()
+st.text(response)
 
-#------------------------------------------------------
+#plot your prediction
 
-#------------------------------------------------------
-#   models
-#------------------------------------------------------
-
-#------------------------------------------------------
-
-# predict(str(input('Enter a sentence : ')))
-
-# if __name__=="__main__":
-    
-    #predict('Hi there this is a nheew test sentence and it is scary, model, tokenizer', model, tokenizer)
+st.set_option('deprecation.showPyplotGlobalUse', False)
+plt.bar(x = response.keys(), height = response.values())
+st.pyplot()
     
