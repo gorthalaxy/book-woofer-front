@@ -11,7 +11,7 @@ def select_and_play(feeling):
 
 
     d= {'happiness':happiness, 'sadness':sadness, 'love':love, 
-        'anger':anger, 'neutral':neutral
+        'anger':anger, 'neutral':neutral, 'fear': fear
        }
     
     mood = d[feeling]
@@ -22,29 +22,3 @@ def select_and_play(feeling):
         """,
         height=800,
     )
-
-
-# def select_link(mood):
-#     return components.html(
-#             f'''
-#                 <iframe src="{mood}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-#             ''',
-#             height=600
-#         )
-    
-
-# components.html(
-#     '''
-#         <iframe src="https://spotify.com/embed/playlist/7xOHp3ZlSBJNJOgsQwF85S" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-#     ''',
-#     height=600
-# )
-
-
-def music_player(input):
-  components.html(
-    f"""
-    <iframe src={input} width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-    """,
-    height=200,
-  )

@@ -38,7 +38,7 @@ response = requests.post(
 ).json()
 st.text(response)
 
-mood_colors = {'anger': 'B52525', 'fear': '489D38' , 'happy': 'DAC623', 'love': '9C37AA', 'neutral': '155249', 'sadness': '3298D5'}
+mood_colors = {'anger': 'B52525', 'fear': '489D38' , 'happiness': 'DAC623', 'love': '9C37AA', 'neutral': '155249', 'sadness': '3298D5'}
 
 our_mood = max(response, key=response.get)
 select_and_play(our_mood)
