@@ -52,7 +52,7 @@ if response is not None:
     f"""
     <style>
     .reportview-container {{
-        background: #{mood_colors['ourmood']}
+        background: #{mood_colors[our_mood]}
     }}
     </style>
     """,
