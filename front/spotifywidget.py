@@ -20,7 +20,7 @@ def select_and_play(feeling):
         f"""
         <iframe src={mood} width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
         """,
-        height=200,
+        height=800,
     )
 
 
