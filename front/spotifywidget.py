@@ -2,27 +2,16 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 def select_and_play(feeling):
-    happiness = 'https://open.spotify.com/playlist/556ICk4gRzDknRfWGeQ3x1'
-    sadness = 'https://open.spotify.com/playlist/0dRxDrR1PfZMlVbfnuBRbR'
+    happiness = 'https://open.spotify.com/embed/playlist/556ICk4gRzDknRfWGeQ3x1'
+    sadness = 'https://open.spotify.com/embed/playlist/0dRxDrR1PfZMlVbfnuBRbR'
     anger = 'https://open.spotify.com/embed/playlist/7FjP7MbRgFYFdv5avuhiBI'
-    enthusiasm = 'https://open.spotify.com/playlist/4JsAKbWk4AoBcfpSs2afOM'
-    empty = 'https://open.spotify.com/playlist/77OpFLSdLy3nC9huQIXlxk'
-    boredom = 'https://open.spotify.com/playlist/2rA0wLILuvNuLhAacn4kth'
-    worry = 'https://open.spotify.com/playlist/5Dt93qIXccZvZbU6r3oIbs'
-    love = 'https://open.spotify.com/playlist/73KuPUAtOecLDAetRn80TW'
-    surprise = 'https://open.spotify.com/playlist/0BaRZECQEqp4zDd0Njzlj1'
-    fun = 'https://open.spotify.com/playlist/7HwdXmzNKXBzTAisOKYVsJ'
-    relief = 'https://open.spotify.com/playlist/2zaAFRdI6lEaX8Esc11XPZ'
-    hate = 'https://open.spotify.com/playlist/6vdOF3ZRqiYimqEm4lk98V'
-    neutral = 'https://open.spotify.com/playlist/5pSdjjPHbXpbqFJGf31Ksn'
-
-<iframe src="https://open.spotify.com/embed/playlist/7FjP7MbRgFYFdv5avuhiBI" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    fear = 'https://open.spotify.com/embed/playlist/6EF56fuiUgN2GOMVZIiXpq'
+    love = 'https://open.spotify.com/embed/playlist/73KuPUAtOecLDAetRn80TW'
+    neutral = 'https://open.spotify.com/embed/playlist/5pSdjjPHbXpbqFJGf31Ksn'
 
 
-    d= {'happiness':happiness, 'sadness':sadness, 'worry':worry, 'love':love, 
-        'anger':anger, 'fun':fun, 'relief': relief, 'empty':empty,
-        'hate':hate, 'enthusiasm':enthusiasm, 'surprise':surprise,
-        'boredom':boredom, 'neutral':neutral
+    d= {'happiness':happiness, 'sadness':sadness, 'love':love, 
+        'anger':anger, 'neutral':neutral
        }
     
     mood = d[feeling]
