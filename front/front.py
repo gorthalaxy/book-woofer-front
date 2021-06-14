@@ -5,10 +5,7 @@ from ebook import *
 import io
 from spotifywidget import select_and_play
 
-
-
-st.title('books and woofers')
-
+st.title('Book Woofer')
 
 # uploaded_file = st.file_uploader("Choose an ebook")
 
@@ -43,8 +40,6 @@ st.text(response)
 
 mood_colors = {'anger': 'B52525', 'fear': '489D38' , 'happy': 'DAC623', 'love': '9C37AA', 'neutral': '155249', 'sadness': '3298D5'}
 
-
-
 our_mood = max(response, key=response.get)
 select_and_play(our_mood)
 if response is not None:
@@ -58,8 +53,6 @@ if response is not None:
     """,
     unsafe_allow_html=True
 )
-
-
 st.text(our_mood)
 
 #plot your prediction
