@@ -71,6 +71,7 @@ mood_colors = {'anger': 'B52525', 'fear': '489D38' , 'happy': 'DAC623', 'love': 
 #     height=600
 # )
 
+
 with col2:
     st.set_option('deprecation.showPyplotGlobalUse', False)
     plt.bar(x = response.keys(), height = response.values())
