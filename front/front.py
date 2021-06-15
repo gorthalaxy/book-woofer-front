@@ -165,3 +165,48 @@ if make_choice == 'Upload Text':
     except:
     # Prevent the error from propagating into your Streamlit app.
         pass
+=======
+mood_colors = {'anger': 'B52525', 'fear': '489D38' , 'happiness': 'DAC623', 'love': '9C37AA', 'neutral': '155249', 'sadness': '3298D5'}
+
+# our_mood = max(response, key=response.get)
+# select_and_play(our_mood)
+# if response is not None:
+#     st.markdown(
+#     f"""
+#     <style>
+#     .reportview-container {{
+#         background: #{mood_colors[our_mood]}
+#     }}
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
+# st.text(our_mood)
+
+#plot your prediction
+
+# components.html(
+#     '''
+#         <iframe src="https://open.spotify.com/embed/playlist/7xOHp3ZlSBJNJOgsQwF85S" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+#     ''',
+#     height=600
+# )
+
+
+with col2:
+    st.set_option('deprecation.showPyplotGlobalUse', False)
+    plt.bar(x = response.keys(), height = response.values())
+    st.pyplot()
+    our_mood = max(response, key=response.get)
+    select_and_play(our_mood)
+    if response is not None:
+        st.markdown(
+        f"""
+        <style>
+        .reportview-container {{
+            background: #{mood_colors[our_mood]}
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
