@@ -10,8 +10,8 @@ def select_and_play(feeling):
     neutral = 'https://open.spotify.com/embed/playlist/5pSdjjPHbXpbqFJGf31Ksn'
 
 
-    d= {'happiness':happiness, 'sadness':sadness, 'love':love, 
-        'anger':anger, 'neutral':neutral
+    d= {'happy':happiness, 'sadness':sadness, 'love':love, 
+        'anger':anger, 'neutral':neutral, 'fear': fear
        }
     
     mood = d[feeling]
