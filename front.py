@@ -24,7 +24,7 @@ make_choice = st.sidebar.selectbox('Options:', ['Upload Ebook', 'Upload Text'])
 #   Ebook
 #----------------------------------------
 if make_choice == 'Upload Ebook':
-    # try:
+    try:
         col1, col2, = st.beta_columns((3,1))
         with col1 :
             uploaded_file = st.file_uploader("Upload your ebook.")
@@ -91,9 +91,9 @@ if make_choice == 'Upload Ebook':
             """,
             unsafe_allow_html=True
             )
-    # except:
-    # # Prevent the error from propagating into your Streamlit app.
-    #     pass
+    except:
+    # Prevent the error from propagating into your Streamlit app.
+        pass
 #----------------------------------------
 #   Upload Text
 #----------------------------------------
