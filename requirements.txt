@@ -1,7 +1,6 @@
 streamlit
 requests
 matplotlib
-ebook
 spotifywidget
 ebooklib
 bs4
