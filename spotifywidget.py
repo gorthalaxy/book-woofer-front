@@ -11,7 +11,7 @@ from spotipy import oauth2
 import random
 from functools import reduce
 import requests
-from spotify.spotify_creds import SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_USER, SPOTIFY_REDIRECT_URI
+# from spotify.spotify_creds import SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_USER, SPOTIFY_REDIRECT_URI\
 import streamlit as st
 import streamlit.components.v1 as components
 import datetime as dt
