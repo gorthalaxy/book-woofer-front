@@ -52,6 +52,27 @@ def spotify_authentification():
     }
     return headers
 
+def select_playlist(feeling):
+        happiness = 'https://open.spotify.com/embed/playlist/556ICk4gRzDknRfWGeQ3x1'
+        sadness = 'https://open.spotify.com/embed/playlist/0dRxDrR1PfZMlVbfnuBRbR'
+        anger = 'https://open.spotify.com/embed/playlist/7FjP7MbRgFYFdv5avuhiBI'
+        fear = 'https://open.spotify.com/embed/playlist/6EF56fuiUgN2GOMVZIiXpq'
+        love = 'https://open.spotify.com/embed/playlist/73KuPUAtOecLDAetRn80TW'
+        neutral = 'https://open.spotify.com/embed/playlist/5pSdjjPHbXpbqFJGf31Ksn'
+
+        d= {'happiness':happiness, 'sadness':sadness, 'love':love, 
+            'anger':anger, 'neutral':neutral, 'fear': fear}
+
+        mood = d[feeling]
+
+        return components.html(
+            f"""
+            <iframe src={mood} width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            """,
+            height=800,
+        )
+
+
 def artist_track_features(artist='Bicep'):
     """
     This function will provide us with a dataframe with all sounds of an artist 
@@ -88,7 +109,7 @@ def artist_track_features(artist='Bicep'):
     return pd.DataFrame.from_dict(d, orient='index')
 
 # Playlist class
-class playlists:
+class Playlists:
     
     def __init__(self, playlist_id):
         self.playlist_id = playlist_id
@@ -130,26 +151,6 @@ class playlists:
         playlist_dataframe.rename(columns={'index':'artist'}, inplace=True)
         
         return playlist_dataframe
-
-    def select_playlist(feeling):
-        happiness = 'https://open.spotify.com/embed/playlist/556ICk4gRzDknRfWGeQ3x1'
-        sadness = 'https://open.spotify.com/embed/playlist/0dRxDrR1PfZMlVbfnuBRbR'
-        anger = 'https://open.spotify.com/embed/playlist/7FjP7MbRgFYFdv5avuhiBI'
-        fear = 'https://open.spotify.com/embed/playlist/6EF56fuiUgN2GOMVZIiXpq'
-        love = 'https://open.spotify.com/embed/playlist/73KuPUAtOecLDAetRn80TW'
-        neutral = 'https://open.spotify.com/embed/playlist/5pSdjjPHbXpbqFJGf31Ksn'
-
-        d= {'happiness':happiness, 'sadness':sadness, 'love':love, 
-            'anger':anger, 'neutral':neutral, 'fear': fear}
-
-        mood = d[feeling]
-
-        return components.html(
-            f"""
-            <iframe src={mood} width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-            """,
-            height=800,
-        )
     
     def user_playlist_reorder_tracks(
         self,
@@ -196,7 +197,7 @@ class playlists:
 
 # Playback class
 
-class playback:
+class Playback:
     
     def currently_playing():
         track = sp.current_user_playing_track()
