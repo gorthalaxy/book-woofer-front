@@ -87,7 +87,7 @@ def artist_track_features(artist='Bicep'):
                     d[track_id].update({'genres':'None'})
     return pd.DataFrame.from_dict(d, orient='index')
 
-
+# Playlist class
 class playlists:
     
     def __init__(self, playlist_id):
@@ -193,7 +193,9 @@ class playlists:
         #return f'spotify:track:{playlist_code}'
         return f'https://open.spotify.com/playlist/{playlist_code}'
     
-    
+
+# Playback class
+
 class playback:
     
     def currently_playing():
@@ -210,6 +212,8 @@ class playback:
         #return sp.start_playback(context_uri='https://open.spotify.com/playlist/37i9dQZF1DWV5sGFwUJeqR?si=c02dd0f6cdfe4206')
         # The below one works with tracks.
         #return sp.start_playback(uris=['spotify:track:6gdLoMygLsgktydTQ71b15'])
+
+# User class
         
 class User:
     
