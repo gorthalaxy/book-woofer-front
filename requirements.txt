@@ -6,8 +6,6 @@ bs4
 pandas
 numpy
 spotipy
-functools
 datetime
 json
 webbrowser
-python
