@@ -9,7 +9,7 @@ import seaborn as sns
 from ebook import *
 import io
 import string
-from spotifywidget import select_and_play
+from spotifywidget import *
 
 
 #   Head
@@ -25,7 +25,7 @@ make_choice = st.sidebar.selectbox('Options:', ['Upload Ebook', 'Upload Text'])
 #   Ebook
 #----------------------------------------
 if make_choice == 'Upload Ebook':
-    try:
+    # try:
         col1, col2, = st.beta_columns((3,1))
         with col1 :
             uploaded_file = st.file_uploader("Upload your ebook.")
@@ -81,7 +81,7 @@ if make_choice == 'Upload Ebook':
             st.text(" \n")
             st.markdown(f"<h3 style='text-align: center; color: white;'>Current Mood: {our_mood.title()}</h1>", unsafe_allow_html=True)
             st.pyplot()
-            select_and_play(our_mood)
+            select_playlist(our_mood)
             st.markdown(
             f"""
             <style>
@@ -92,9 +92,9 @@ if make_choice == 'Upload Ebook':
             """,
             unsafe_allow_html=True
             )
-    except:
-    # Prevent the error from propagating into your Streamlit app.
-        pass
+    # except:
+    # # Prevent the error from propagating into your Streamlit app.
+    #     pass
 #----------------------------------------
 #   Upload Text
 #----------------------------------------
@@ -115,7 +115,7 @@ if make_choice == 'Upload Text':
                 st.markdown(input_object)
         # mood_colors = {'anger': 'B52525', 'fear': '489D38' , 'happy': 'DAC623', 'love': '9C37AA', 'neutral': '155249', 'sadness': '3298D5'}
         # our_mood = max(response, key=response.get)
-        # select_and_play(our_mood)
+        # select_playlist(our_mood)
         # if response is not None:
         #     st.markdown(
         #     f"""
@@ -150,7 +150,7 @@ if make_choice == 'Upload Text':
                 plt.bar(x = response.keys(), height = response.values(), color ='purple')
                 st.subheader(f'Current Mood: {our_mood.title()}')
                 st.pyplot()
-                select_and_play(our_mood)
+                select_playlist(our_mood)
                 if response is not None:
                     st.markdown(
                     f"""
@@ -165,48 +165,22 @@ if make_choice == 'Upload Text':
     except:
     # Prevent the error from propagating into your Streamlit app.
         pass
-=======
-mood_colors = {'anger': 'B52525', 'fear': '489D38' , 'happiness': 'DAC623', 'love': '9C37AA', 'neutral': '155249', 'sadness': '3298D5'}
+# mood_colors = {'anger': 'B52525', 'fear': '489D38' , 'happiness': 'DAC623', 'love': '9C37AA', 'neutral': '155249', 'sadness': '3298D5'}
 
-# our_mood = max(response, key=response.get)
-# select_and_play(our_mood)
-# if response is not None:
-#     st.markdown(
-#     f"""
-#     <style>
-#     .reportview-container {{
-#         background: #{mood_colors[our_mood]}
-#     }}
-#     </style>
-#     """,
-#     unsafe_allow_html=True
-# )
-# st.text(our_mood)
-
-#plot your prediction
-
-# components.html(
-#     '''
-#         <iframe src="https://open.spotify.com/embed/playlist/7xOHp3ZlSBJNJOgsQwF85S" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-#     ''',
-#     height=600
-# )
-
-
-with col2:
-    st.set_option('deprecation.showPyplotGlobalUse', False)
-    plt.bar(x = response.keys(), height = response.values())
-    st.pyplot()
-    our_mood = max(response, key=response.get)
-    select_and_play(our_mood)
-    if response is not None:
-        st.markdown(
-        f"""
-        <style>
-        .reportview-container {{
-            background: #{mood_colors[our_mood]}
-        }}
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+# with col2:
+#     st.set_option('deprecation.showPyplotGlobalUse', False)
+#     plt.bar(x = response.keys(), height = response.values())
+#     st.pyplot()
+#     our_mood = max(response, key=response.get)
+#     # select_playlist(our_mood)
+#     if response is not None:
+#         st.markdown(
+#         f"""
+#         <style>
+#         .reportview-container {{
+#             background: #{mood_colors[our_mood]}
+#         }}
+#         </style>
+#         """,
+#         unsafe_allow_html=True
+#     )
