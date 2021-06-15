@@ -7,5 +7,4 @@ pandas
 numpy
 spotipy
 datetime
-json
 webbrowser
