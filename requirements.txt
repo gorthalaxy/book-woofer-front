@@ -1,11 +1,11 @@
 streamlit
 requests
 matplotlib.pyplot
-ebook import
-io
+ebook
 spotifywidget
 ebooklib
-bs4 
+bs4
+io
 streamlit.components.v1
 pandas
 numpy
@@ -17,8 +17,6 @@ random
 functools
 spotify.spotify_creds
 datetime
-os
-sys
 json
 webbrowser
 json.decoder
