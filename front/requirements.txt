@@ -1,0 +1,24 @@
+streamlit
+requests
+matplotlib.pyplot
+ebook import
+io
+spotifywidget
+ebooklib
+bs4 
+streamlit.components.v1
+pandas
+numpy
+json
+spotipy
+spotipy.util
+spotipy.oauth2
+random
+functools
+spotify.spotify_creds
+datetime
+os
+sys
+json
+webbrowser
+json.decoder
