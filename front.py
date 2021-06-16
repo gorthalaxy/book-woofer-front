@@ -22,9 +22,17 @@ st.title('Book Woofer')
 # local_css("style.css")
  
 
+user = User
+playing = Playback
+playlist = Playlists
 
 mood_colors = {'anger': '7B241C', 'fear': '212F3C', 'happy': 'AF601A', 'love': '5B2C6F', 'neutral': '4D5656', 'sadness': '154360'}
 make_choice = st.sidebar.selectbox('Options:', ['Upload Ebook', 'Upload Text'])
+# st.sidebar.write(playing.currently_playing())
+st.sidebar.write(user.user_id())
+st.sidebar.write(user.user_followers())
+
+
 #----------------------------------------
 #   Ebook
 #----------------------------------------
@@ -86,6 +94,9 @@ if make_choice == 'Upload Ebook':
             st.markdown(f"<h3 style='text-align: center; color: white;'>Current Mood: {our_mood.title()}</h1>", unsafe_allow_html=True)
             st.pyplot()
             select_playlist(our_mood)
+            #playback_url = playlist.playlist_selection_url(our_mood)
+            playing.start_playback(playlist.playlist_selection_url(our_mood))
+            st.sidebar.markdown(playing.currently_playing())
             st.markdown(
             f"""
             <style>
