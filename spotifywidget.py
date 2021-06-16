@@ -116,11 +116,13 @@ def artist_track_features(artist='Bicep'):
                 else :
                     d[track_id].update({'genres':'None'})
     return pd.DataFrame.from_dict(d, orient='index')
+
 # Playlist class
 class Playlists:
     
     def __init__(self, playlist_id):
         self.playlist_id = playlist_id
+        
     def get_artist_tracks(self):
         headers = spotify_authentification()
         BASE_URL = 'https://api.spotify.com/v1/'
@@ -181,10 +183,12 @@ class Playlists:
         return self.playlist_reorder_items(playlist_id, range_start,
                                            insert_before, range_length,
                                            snapshot_id)
+    
     def playlist_shuffle(playlist_URL):
     # need to put the last track on the 4th parameter
         return sp.user_playlist_reorder_tracks('keir20', playlist_URL, 0, random.rand())
     #sp.user_playlist_reorder_tracks('keir20', 'https://open.spotify.com/playlist/2Zbn1h9DY5rJagR2NjeRxR', 0, 37)
+    
     def get_playlist_url(self):
         headers = spotify_authentification()
         BASE_URL = 'https://api.spotify.com/v1/'
@@ -192,6 +196,22 @@ class Playlists:
         playlist_code = re.get('href').split('/')[5]
         #return f'spotify:track:{playlist_code}'
         return f'https://open.spotify.com/playlist/{playlist_code}'
+    
+    def playlist_selection_url(self, feeling):
+        happiness = 'https://open.spotify.com/embed/playlist/556ICk4gRzDknRfWGeQ3x1'
+        sadness = 'https://open.spotify.com/embed/playlist/0dRxDrR1PfZMlVbfnuBRbR'
+        anger = 'https://open.spotify.com/embed/playlist/7FjP7MbRgFYFdv5avuhiBI'
+        fear = 'https://open.spotify.com/embed/playlist/6EF56fuiUgN2GOMVZIiXpq'
+        love = 'https://open.spotify.com/embed/playlist/73KuPUAtOecLDAetRn80TW'
+        neutral = 'https://open.spotify.com/embed/playlist/5pSdjjPHbXpbqFJGf31Ksn'
+        
+        d= {'happy':happiness, 'sadness':sadness, 'love':love, 
+        'anger':anger, 'neutral':neutral, 'fear': fear}
+        mood = d[feeling]
+        
+        return mood
+        
+    
 # Playback class
 
 class Playback:
@@ -201,24 +221,28 @@ class Playback:
         artist = track['item']['artists'][0]['name']
         track = track['item']['name']
         if artist != "":
-            print("Currently playing " + artist + " - " + track)
+            return f"Currently playing {artist} - {track}"
+    
     def start_playback(playlist_url):
         return sp.start_playback(context_uri=playlist_url)
         # The below one works with playlists.
         #return sp.start_playback(context_uri='https://open.spotify.com/playlist/37i9dQZF1DWV5sGFwUJeqR?si=c02dd0f6cdfe4206')
         # The below one works with tracks.
         #return sp.start_playback(uris=['spotify:track:6gdLoMygLsgktydTQ71b15'])
+        
 # User class
 class User:
     def user_id():
         sp.trace = True
         user_info = sp.user(username)
-        return user_info.get('display_name') 
+        return f"User: {user_info.get('display_name')}" 
+    
     def user_followers():
         sp.trace = True
         user_info = sp.user(username)
         followers = user_info.get('followers').get('total')
-        return followers
+        return f"Followers: {followers}"
+    
     def user_info():
         sp.trace = True
         user_info = sp.user(username)
