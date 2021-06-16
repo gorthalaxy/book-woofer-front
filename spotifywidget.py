@@ -4,14 +4,14 @@ import pandas as pd
 import numpy as np
 import json
 # %config InlineBackend.figure_format ='retina'
-import spotipy
-import spotipy.util as util
+# import spotipy
+# import spotipy.util as util
 from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
 from spotipy import oauth2
 import random
 from functools import reduce
 import requests
-from spotify.spotify_creds import SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_USER, SPOTIFY_REDIRECT_URI
+# from spotify.spotify_creds import SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_USER, SPOTIFY_REDIRECT_URI
 import streamlit as st
 import streamlit.components.v1 as components
 import datetime as dt
@@ -34,16 +34,16 @@ def select_playlist(feeling):
         height=800,
     )
 
-# ID and password
-cid = SPOTIFY_CLIENT_ID
-secret = SPOTIFY_CLIENT_SECRET
-username = SPOTIFY_USER
-uri = SPOTIFY_REDIRECT_URI
-scope = 'user-read-private user-read-email playlist-modify-public user-read-playback-state user-read-currently-playing user-modify-playback-state'
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=cid,
-                                               client_secret=secret,
-                                               redirect_uri=uri,
-                                               scope=scope))
+# # ID and password
+# cid = SPOTIFY_CLIENT_ID
+# secret = SPOTIFY_CLIENT_SECRET
+# username = SPOTIFY_USER
+# uri = SPOTIFY_REDIRECT_URI
+# scope = 'user-read-private user-read-email playlist-modify-public user-read-playback-state user-read-currently-playing user-modify-playback-state'
+# sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=cid,
+#                                                client_secret=secret,
+#                                                redirect_uri=uri,
+#                                                scope=scope))
 def spotify_authentification():
     """
     Api authentification using requests
