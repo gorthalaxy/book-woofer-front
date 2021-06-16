@@ -5,11 +5,13 @@ import string
 import streamlit as st
 import requests
 import matplotlib.pyplot as plt
-import seaborn as sns
 from ebook import *
 import io
 import string
 from spotifywidget import *
+# from load_css import local_css
+
+
 
 
 #   Head
@@ -17,12 +19,14 @@ from spotifywidget import *
 
 st.set_page_config(layout="wide")
 st.title('Book Woofer')
+# local_css("style.css")
+ 
 
 user = User
 playing = Playback
 playlist = Playlists
 
-mood_colors = {'anger': 'B52525', 'fear': '489D38' , 'happy': 'DAC623', 'love': '9C37AA', 'neutral': '155249', 'sadness': '3298D5'}
+mood_colors = {'anger': '7B241C', 'fear': '212F3C', 'happy': 'AF601A', 'love': '5B2C6F', 'neutral': '4D5656', 'sadness': '154360'}
 make_choice = st.sidebar.selectbox('Options:', ['Upload Ebook', 'Upload Text'])
 # st.sidebar.write(playing.currently_playing())
 st.sidebar.write(user.user_id())
@@ -33,7 +37,7 @@ st.sidebar.write(user.user_followers())
 #   Ebook
 #----------------------------------------
 if make_choice == 'Upload Ebook':
-    # try:
+    try:
         col1, col2, = st.beta_columns((3,1))
         with col1 :
             uploaded_file = st.file_uploader("Upload your ebook.")
@@ -103,9 +107,9 @@ if make_choice == 'Upload Ebook':
             """,
             unsafe_allow_html=True
             )
-    # except:
-    # # Prevent the error from propagating into your Streamlit app.
-    #     pass
+    except:
+    # Prevent the error from propagating into your Streamlit app.
+        pass
 #----------------------------------------
 #   Upload Text
 #----------------------------------------
@@ -124,6 +128,10 @@ if make_choice == 'Upload Text':
                     params=texts,
                 ).json()
                 st.markdown(input_object)
+                # t = f"<div><span class='highlight blue'>{input_object}</span>"
+                # st.markdown("<div style=width:200px;height:100px;border:6px solid orange; background:#ccc;>text</div>")
+
+                # st.markdown(t, unsafe_allow_html=True)
         # mood_colors = {'anger': 'B52525', 'fear': '489D38' , 'happy': 'DAC623', 'love': '9C37AA', 'neutral': '155249', 'sadness': '3298D5'}
         # our_mood = max(response, key=response.get)
         # select_playlist(our_mood)

@@ -33,6 +33,7 @@ def select_playlist(feeling):
         """,
         height=800,
     )
+
 # ID and password
 cid = SPOTIFY_CLIENT_ID
 secret = SPOTIFY_CLIENT_SECRET
@@ -62,6 +63,28 @@ def spotify_authentification():
         'Authorization': 'Bearer {token}'.format(token=access_token)
     }
     return headers
+
+def select_playlist(feeling):
+        happiness = 'https://open.spotify.com/embed/playlist/556ICk4gRzDknRfWGeQ3x1'
+        sadness = 'https://open.spotify.com/embed/playlist/0dRxDrR1PfZMlVbfnuBRbR'
+        anger = 'https://open.spotify.com/embed/playlist/7FjP7MbRgFYFdv5avuhiBI'
+        fear = 'https://open.spotify.com/embed/playlist/6EF56fuiUgN2GOMVZIiXpq'
+        love = 'https://open.spotify.com/embed/playlist/73KuPUAtOecLDAetRn80TW'
+        neutral = 'https://open.spotify.com/embed/playlist/5pSdjjPHbXpbqFJGf31Ksn'
+
+        d= {'happy':happiness, 'sadness':sadness, 'love':love, 
+            'anger':anger, 'neutral':neutral, 'fear': fear}
+
+        mood = d[feeling]
+
+        return components.html(
+            f"""
+            <iframe src={mood} width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            """,
+            height=800,
+        )
+
+
 def artist_track_features(artist='Bicep'):
     """
     This function will provide us with a dataframe with all sounds of an artist 
@@ -96,6 +119,7 @@ def artist_track_features(artist='Bicep'):
 
 # Playlist class
 class Playlists:
+    
     def __init__(self, playlist_id):
         self.playlist_id = playlist_id
         
@@ -189,7 +213,9 @@ class Playlists:
         
     
 # Playback class
+
 class Playback:
+    
     def currently_playing():
         track = sp.current_user_playing_track()
         artist = track['item']['artists'][0]['name']
@@ -222,4 +248,4 @@ class User:
         user_info = sp.user(username)
         user = user_info.get('display_name')
         followers = user_info.get('followers').get('total')
-        return f"User: {user}\n Followers: {followers}"
+        return f"User: {user} Followers: {followers}"
