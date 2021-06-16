@@ -62,6 +62,31 @@ def spotify_authentification():
         'Authorization': 'Bearer {token}'.format(token=access_token)
     }
     return headers
+<<<<<<< HEAD:front/spotifywidget.py
+
+def select_playlist(feeling):
+        happiness = 'https://open.spotify.com/embed/playlist/556ICk4gRzDknRfWGeQ3x1'
+        sadness = 'https://open.spotify.com/embed/playlist/0dRxDrR1PfZMlVbfnuBRbR'
+        anger = 'https://open.spotify.com/embed/playlist/7FjP7MbRgFYFdv5avuhiBI'
+        fear = 'https://open.spotify.com/embed/playlist/6EF56fuiUgN2GOMVZIiXpq'
+        love = 'https://open.spotify.com/embed/playlist/73KuPUAtOecLDAetRn80TW'
+        neutral = 'https://open.spotify.com/embed/playlist/5pSdjjPHbXpbqFJGf31Ksn'
+
+        d= {'happiness':happiness, 'sadness':sadness, 'love':love, 
+            'anger':anger, 'neutral':neutral, 'fear': fear}
+
+        mood = d[feeling]
+
+        return components.html(
+            f"""
+            <iframe src={mood} width="100%" height="380" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            """,
+            height=800,
+        )
+
+
+=======
+>>>>>>> aa6147785d46186bfdb82ec25d0c42d61a5a8929:spotifywidget.py
 def artist_track_features(artist='Bicep'):
     """
     This function will provide us with a dataframe with all sounds of an artist 
@@ -95,6 +120,10 @@ def artist_track_features(artist='Bicep'):
     return pd.DataFrame.from_dict(d, orient='index')
 # Playlist class
 class Playlists:
+<<<<<<< HEAD:front/spotifywidget.py
+    
+=======
+>>>>>>> aa6147785d46186bfdb82ec25d0c42d61a5a8929:spotifywidget.py
     def __init__(self, playlist_id):
         self.playlist_id = playlist_id
     def get_artist_tracks(self):
@@ -169,7 +198,13 @@ class Playlists:
         #return f'spotify:track:{playlist_code}'
         return f'https://open.spotify.com/playlist/{playlist_code}'
 # Playback class
+<<<<<<< HEAD:front/spotifywidget.py
+
+class Playback:
+    
+=======
 class playback:
+>>>>>>> aa6147785d46186bfdb82ec25d0c42d61a5a8929:spotifywidget.py
     def currently_playing():
         track = sp.current_user_playing_track()
         artist = track['item']['artists'][0]['name']
