@@ -18,9 +18,17 @@ from spotifywidget import *
 st.set_page_config(layout="wide")
 st.title('Book Woofer')
 
+user = User
+playing = Playback
+playlist = Playlists
 
 mood_colors = {'anger': 'B52525', 'fear': '489D38' , 'happy': 'DAC623', 'love': '9C37AA', 'neutral': '155249', 'sadness': '3298D5'}
 make_choice = st.sidebar.selectbox('Options:', ['Upload Ebook', 'Upload Text'])
+# st.sidebar.write(playing.currently_playing())
+st.sidebar.write(user.user_id())
+st.sidebar.write(user.user_followers())
+
+
 #----------------------------------------
 #   Ebook
 #----------------------------------------
@@ -82,6 +90,9 @@ if make_choice == 'Upload Ebook':
             st.markdown(f"<h3 style='text-align: center; color: white;'>Current Mood: {our_mood.title()}</h1>", unsafe_allow_html=True)
             st.pyplot()
             select_playlist(our_mood)
+            #playback_url = playlist.playlist_selection_url(our_mood)
+            playing.start_playback(playlist.playlist_selection_url(our_mood))
+            st.sidebar.markdown(playing.currently_playing())
             st.markdown(
             f"""
             <style>
