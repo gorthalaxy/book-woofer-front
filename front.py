@@ -22,15 +22,7 @@ from spotifywidget import *
 
 st.set_page_config(page_title='Book Woofer',page_icon = 'favicon.png', layout = 'wide')
 st.title('Book Woofer')
-# local_css("style.css")
- 
-#pantone Palette
-#blue = C3D7EE = fear
-#pink = DCC5C4 = love
-#dusky orange = F2C6AB = anger
-#green = 93E6B4 = neutral
-#yellow = F3EAA1 = happy
-#egg shell = DDE4E6 = sadness
+
 mood_colors = {'anger': 'F2C6AB', 
                'fear': 'C3D7EE' , 
                'happy': 'F3EAA1', 
@@ -73,15 +65,6 @@ if make_choice == 'Upload Ebook':
                     # raw_string = r"{}".format(output[chapter])
                     
                     st.markdown(output[chapter])
-                    # print(output[chapter])
-#                     st.text(type(output))
-#                     f = '''<style>.myDiv {border: 5px double DarkOliveGreen;background-color: Cornsilk;
-#                     text-align: center; padding: 200px;}
-# </style>
-# <div class="myDiv"><p style="color:Black; text-align:left">'''
-#                     st.markdown(f, unsafe_allow_html=True)
-#                     st.markdown(output[chapter], unsafe_allow_html=True)
-#                     st.markdown('</p></div>', unsafe_allow_html=True)
         #====================Send request and print prediction
                     texts = {'text': out}
                     url = "https://bfcontainer-csy3ocxwaq-ew.a.run.app/predict/"
@@ -95,8 +78,6 @@ if make_choice == 'Upload Ebook':
                 # sidebar_css = """<style>.sidebar .sidebar-content {background-image: linear-gradient(#FFFFFF,#FFFFFF);color: white;}</style>"""
                 # st.markdown(sidebar_css,unsafe_allow_html=True)
                 with st.sidebar:
-                    # sidebar_css = """<style>.sidebar .sidebar-content {background-image: linear-gradient(#FFFFFF,#FFFFFF);color: white;}</style>"""
-                    # st.markdown(sidebar_css,unsafe_allow_html=True)
                     fig = plt.figure()
                     fig.patch.set_facecolor(f'#{mood_colors[our_mood]}')
                     fig.patch.set_alpha(1)#0.6)
@@ -109,16 +90,6 @@ if make_choice == 'Upload Ebook':
                     st.pyplot()
                     
                     select_playlist(our_mood)
-                # st.markdown(
-                # f"""
-                # <style>
-                # .reportview-container {{
-                #     background: #{mood_colors[our_mood]}
-                # }}
-                # </style>
-                # """,
-                # unsafe_allow_html=True
-                # )
     # except:
     # # Prevent the error from propagating into your Streamlit app.
     #     pass
@@ -224,7 +195,7 @@ if make_choice == 'Upload Text':
 #   Upload Text
 #----------------------------------------
 if make_choice == 'Select Ebook':
-    book_choice = st.selectbox('Pick an ebook to read:', ['Alices Adventures in Wonderland', 'The White Feather'])
+    book_choice = st.selectbox('Pick an ebook to read:', ['Alices Adventures in Wonderland', 'The White Feather', 'King of Terror'])
     st.markdown("<div id='linkto_top'></div>", unsafe_allow_html=True)
     output = read_book(f'{book_choice}.epub')
     chapter = st.selectbox('Chapter:', [i+1 for i in range(len(output))])
