@@ -10,7 +10,6 @@ from ebook import *
 import io
 import string
 from spotifywidget import *
-from load_css import local_css
 
 
 # f = f'''<style>.myDiv {{border: 5px double DarkOliveGreen;background-color: Cornsilk; text-align: center; padding: 20px;}}</style></head><body><div class="myDiv"><p style="color:Black; text-align:left">hello</p></div>'''
