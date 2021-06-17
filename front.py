@@ -35,7 +35,7 @@ mood_colors = {'anger': 'F2C6AB',
                'happy': 'F3EAA1', 
                'love': 'DCC5C4', 
                'neutral': '93E6B4', 
-               'sadness': 'DDE4E6'}
+               'sadness': '9BB7D4'}
 
 # mood_colors = {'anger': '7B241C', 'fear': '212F3C', 'happy': 'AF601A', 'love': '5B2C6F', 'neutral': '4D5656', 'sadness': '154360'}
 make_choice = st.sidebar.selectbox('Options:', ['Upload Ebook', 'Select Ebook', 'Upload Text'])
