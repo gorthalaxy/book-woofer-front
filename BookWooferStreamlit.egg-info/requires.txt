@@ -1,0 +1,9 @@
+streamlit
+requests
+matplotlib
+ebooklib
+bs4
+pandas
+numpy
+spotipy
+datetime

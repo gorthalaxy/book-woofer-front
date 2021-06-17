@@ -1,0 +1,8 @@
+README.md
+setup.py
+BookWooferStreamlit.egg-info/PKG-INFO
+BookWooferStreamlit.egg-info/SOURCES.txt
+BookWooferStreamlit.egg-info/dependency_links.txt
+BookWooferStreamlit.egg-info/not-zip-safe
+BookWooferStreamlit.egg-info/requires.txt
+BookWooferStreamlit.egg-info/top_level.txt
