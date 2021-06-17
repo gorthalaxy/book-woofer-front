@@ -90,7 +90,6 @@ if make_choice == 'Upload Ebook':
                         url,
                         params=texts,
                     ).json()
-                    st.text(response)
                     st.markdown("<a href='#linkto_top' style='color:#FFFFFF'>Choose next chapter</a>", unsafe_allow_html=True)
                 our_mood = max(response, key=response.get)
                 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -240,7 +239,6 @@ if make_choice == 'Select Ebook':
         params=texts,
     ).json()
     st.markdown(output[chapter])
-    st.text(response)
     st.markdown("<a href='#linkto_top' style='color:#FFFFFF'>Choose next chapter</a>", unsafe_allow_html=True)
     our_mood = max(response, key=response.get)
     st.set_option('deprecation.showPyplotGlobalUse', False)
