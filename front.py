@@ -123,6 +123,9 @@ if make_choice == 'Upload Ebook':
                     
                     # Fill area
                     ax.fill(angles, values, f'#{mood_colors[our_mood]}', alpha=0.6)
+                    ax.spines[:].set_color('white')
+                    ax.tick_params(axis='x', grid_color='white')
+                    ax.tick_params(axis='y', grid_color='white')
                     ax.set_facecolor('#31333F')
                     # Show the graph
                     # plt.show()
@@ -237,6 +240,9 @@ if make_choice == 'Upload Text':
                     
                     # Fill area
                     ax.fill(angles, values, f'#{mood_colors[our_mood]}', alpha=0.6)
+                    ax.spines[:].set_color('white')
+                    ax.tick_params(axis='x', grid_color='white')
+                    ax.tick_params(axis='y', grid_color='white')
                     ax.set_facecolor('#31333F')
                     # Show the graph
                     # plt.show()
@@ -350,6 +356,9 @@ if make_choice == 'Select Ebook':
         
         # Fill area
         ax.fill(angles, values, f'#{mood_colors[our_mood]}', alpha=0.6)
+        ax.spines[:].set_color('white')
+        ax.tick_params(axis='x', grid_color='white')
+        ax.tick_params(axis='y', grid_color='white')
         ax.set_facecolor('#31333F')
         # Show the graph
         # plt.show()
