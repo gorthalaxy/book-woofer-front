@@ -40,7 +40,7 @@ mood_colors = {'anger': 'F2C6AB',
                'sadness': '9BB7D4'}
 
 # mood_colors = {'anger': '7B241C', 'fear': '212F3C', 'happy': 'AF601A', 'love': '5B2C6F', 'neutral': '4D5656', 'sadness': '154360'}
-make_choice = st.sidebar.selectbox('Options:', ['Upload Ebook', 'Select Ebook', 'Upload Text'])
+make_choice = st.sidebar.selectbox('', ['Upload Ebook', 'Select Ebook', 'Upload Text'])
 # user = User
 # playing = Playback
 # playlist = Playlists
@@ -54,7 +54,7 @@ if make_choice == 'Upload Ebook':
     # try:
         # col1, col2, = st.beta_columns((3,1))
         # with col1 :
-            uploaded_file = st.file_uploader("Upload your ebook.")
+            uploaded_file = st.file_uploader("Upload your ebook:")
             temporary_location = False
             if uploaded_file is not None:
                 g = io.BytesIO(uploaded_file.read())  # BytesIO Object
@@ -91,7 +91,7 @@ if make_choice == 'Upload Ebook':
                         params=texts,
                     ).json()
                     st.text(response)
-                    st.markdown("<a href='#linkto_top' style='color:#FFFFFF'>Choose next chapter!</a>", unsafe_allow_html=True)
+                    st.markdown("<a href='#linkto_top' style='color:#FFFFFF'>Choose next chapter</a>", unsafe_allow_html=True)
                 our_mood = max(response, key=response.get)
                 st.set_option('deprecation.showPyplotGlobalUse', False)
                 # sidebar_css = """<style>.sidebar .sidebar-content {background-image: linear-gradient(#FFFFFF,#FFFFFF);color: white;}</style>"""
@@ -226,7 +226,8 @@ if make_choice == 'Upload Text':
 #   Upload Text
 #----------------------------------------
 if make_choice == 'Select Ebook':
-    book_choice = st.selectbox('Which book', ['Alices Adventures in Wonderland', 'The White Feather'])
+    book_choice = st.selectbox('Pick an ebook to read:', ['Alices Adventures in Wonderland', 'The White Feather'])
+    st.markdown("<div id='linkto_top'></div>", unsafe_allow_html=True)
     output = read_book(f'{book_choice}.epub')
     chapter = st.selectbox('Chapter:', [i+1 for i in range(len(output))])
     chapter = chapter-1
@@ -240,7 +241,7 @@ if make_choice == 'Select Ebook':
     ).json()
     st.markdown(output[chapter])
     st.text(response)
-    st.markdown("<a href='#linkto_top' style='color:#FFFFFF'>Choose next chapter!</a>", unsafe_allow_html=True)
+    st.markdown("<a href='#linkto_top' style='color:#FFFFFF'>Choose next chapter</a>", unsafe_allow_html=True)
     our_mood = max(response, key=response.get)
     st.set_option('deprecation.showPyplotGlobalUse', False)
     with st.sidebar:
