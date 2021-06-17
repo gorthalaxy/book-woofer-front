@@ -232,6 +232,7 @@ class Playback:
         
 # User class
 class User:
+    
     def user_id():
         sp.trace = True
         user_info = sp.user(username)
