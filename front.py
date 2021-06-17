@@ -32,7 +32,7 @@ st.title('Book Woofer')
 #egg shell = DDE4E6 = sadness
 mood_colors = {'anger': 'F2C6AB', 
                'fear': 'C3D7EE' , 
-               'happy': 'F3EAA1', 
+               'happiness': 'F3EAA1', 
                'love': 'DCC5C4', 
                'neutral': '93E6B4', 
                'sadness': 'DDE4E6'}
@@ -89,7 +89,7 @@ if make_choice == 'Upload Ebook':
                         params=texts,
                     ).json()
                     st.text(response)
-                    st.markdown("<a href='#linkto_top' style='color:#FFFFFF'>Go to the next chapter, or whichever one you want!</a>", unsafe_allow_html=True)
+                    st.markdown("<a href='#linkto_top' style='color:#FFFFFF'>Choose next chapter!</a>", unsafe_allow_html=True)
                 our_mood = max(response, key=response.get)
                 st.set_option('deprecation.showPyplotGlobalUse', False)
                 # sidebar_css = """<style>.sidebar .sidebar-content {background-image: linear-gradient(#FFFFFF,#FFFFFF);color: white;}</style>"""
@@ -176,14 +176,14 @@ if make_choice == 'Upload Text':
                 st.set_option('deprecation.showPyplotGlobalUse', False)
                 with st.sidebar:
                     fig = plt.figure()
-                    # fig.patch.set_facecolor(f'#{mood_colors[our_mood]}')
-                    fig.patch.set_alpha(0.6)
+                    fig.patch.set_facecolor(f'#{mood_colors[our_mood]}')
+                    fig.patch.set_alpha(1)#0.6)
                     ax = fig.add_subplot(111)
                     ax.patch.set_facecolor('white')
-                    ax.patch.set_alpha(0.6)
+                    ax.patch.set_alpha(1)#0.6)
                     ax.tick_params(axis='both', colors='black', labelsize=12)
-                    plt.bar(x = response.keys(), height = response.values(), color ='purple')
-                    st.subheader(f'Current Mood: {our_mood.title()}')
+                    plt.bar(x = response.keys(), height = response.values(), color = f'#{mood_colors[our_mood]}')
+                    st.markdown(f"<h3 style='text-align: center; color: white;'>Current Mood: {our_mood.title()}</h1>", unsafe_allow_html=True)
                     st.pyplot()
                     select_playlist(our_mood)
                 # if response is not None:
@@ -219,6 +219,10 @@ if make_choice == 'Upload Text':
 #         """,
 #         unsafe_allow_html=True
 #     )
+
+#----------------------------------------
+#   Upload Text
+#----------------------------------------
 if make_choice == 'Select Ebook':
     book_choice = st.selectbox('Which book', ['Alices Adventures in Wonderland', 'The White Feather'])
     output = read_book(f'{book_choice}.epub')
@@ -234,7 +238,7 @@ if make_choice == 'Select Ebook':
     ).json()
     st.markdown(output[chapter])
     st.text(response)
-    st.markdown("<a href='#linkto_top' style='color:#FFFFFF'>Go to the next chapter, or whichever one you want!</a>", unsafe_allow_html=True)
+    st.markdown("<a href='#linkto_top' style='color:#FFFFFF'>Choose next chapter!</a>", unsafe_allow_html=True)
     our_mood = max(response, key=response.get)
     st.set_option('deprecation.showPyplotGlobalUse', False)
     with st.sidebar:
