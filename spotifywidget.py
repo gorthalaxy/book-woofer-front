@@ -65,12 +65,12 @@ def spotify_authentification():
     return headers
 
 def select_playlist(feeling):
-        happiness = 'https://open.spotify.com/embed/playlist/556ICk4gRzDknRfWGeQ3x1'
-        sadness = 'https://open.spotify.com/embed/playlist/0dRxDrR1PfZMlVbfnuBRbR'
-        anger = 'https://open.spotify.com/embed/playlist/7FjP7MbRgFYFdv5avuhiBI'
-        fear = 'https://open.spotify.com/embed/playlist/6EF56fuiUgN2GOMVZIiXpq'
-        love = 'https://open.spotify.com/embed/playlist/73KuPUAtOecLDAetRn80TW'
-        neutral = 'https://open.spotify.com/embed/playlist/5pSdjjPHbXpbqFJGf31Ksn'
+        happiness = 'https://open.spotify.com/embed/playlist/7D0qJgkLwWPUSjdrpkbSin?theme=0'
+        sadness = 'https://open.spotify.com/embed/playlist/1qk5yxfPtk7QVXUaLR21l9?theme=0'
+        anger = 'https://open.spotify.com/embed/playlist/24iYeoWAcb05x5QprUbf3Y?theme=0'
+        fear = 'https://open.spotify.com/embed/playlist/6bo2zoIYOP7JGrb0GRVdCP?theme=0'
+        love = 'https://open.spotify.com/embed/playlist/23Nh54oRF8kayhCVGJYi8b?theme=0'
+        neutral = 'https://open.spotify.com/embed/playlist/7wD60x35VOYSZCGOsy6adm?theme=0'
 
         d= {'happy':happiness, 'sadness':sadness, 'love':love, 
             'anger':anger, 'neutral':neutral, 'fear': fear}
@@ -198,12 +198,12 @@ class Playlists:
         return f'https://open.spotify.com/playlist/{playlist_code}'
     
     def playlist_selection_url(self, feeling):
-        happiness = 'https://open.spotify.com/embed/playlist/556ICk4gRzDknRfWGeQ3x1'
-        sadness = 'https://open.spotify.com/embed/playlist/0dRxDrR1PfZMlVbfnuBRbR'
-        anger = 'https://open.spotify.com/embed/playlist/7FjP7MbRgFYFdv5avuhiBI'
-        fear = 'https://open.spotify.com/embed/playlist/6EF56fuiUgN2GOMVZIiXpq'
-        love = 'https://open.spotify.com/embed/playlist/73KuPUAtOecLDAetRn80TW'
-        neutral = 'https://open.spotify.com/embed/playlist/5pSdjjPHbXpbqFJGf31Ksn'
+        happiness = 'https://open.spotify.com/embed/playlist/7D0qJgkLwWPUSjdrpkbSin?theme=0'
+        sadness = 'https://open.spotify.com/embed/playlist/1qk5yxfPtk7QVXUaLR21l9?theme=0'
+        anger = 'https://open.spotify.com/embed/playlist/24iYeoWAcb05x5QprUbf3Y?theme=0'
+        fear = 'https://open.spotify.com/embed/playlist/6bo2zoIYOP7JGrb0GRVdCP?theme=0'
+        love = 'https://open.spotify.com/embed/playlist/23Nh54oRF8kayhCVGJYi8b?theme=0'
+        neutral = 'https://open.spotify.com/embed/playlist/7wD60x35VOYSZCGOsy6adm?theme=0'
         
         d= {'happy':happiness, 'sadness':sadness, 'love':love, 
         'anger':anger, 'neutral':neutral, 'fear': fear}
