@@ -32,7 +32,7 @@ st.title('Book Woofer')
 #egg shell = DDE4E6 = sadness
 mood_colors = {'anger': 'F2C6AB', 
                'fear': 'C3D7EE' , 
-               'happiness': 'F3EAA1', 
+               'happy': 'F3EAA1', 
                'love': 'DCC5C4', 
                'neutral': '93E6B4', 
                'sadness': 'DDE4E6'}
