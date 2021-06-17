@@ -19,7 +19,9 @@ from load_css import local_css
 #   Head
 #----------------------------------------
 
-st.set_page_config(layout="wide")
+
+
+st.set_page_config(page_title='Book Woofer',page_icon = 'favicon.png', layout = 'wide')
 st.title('Book Woofer')
 # local_css("style.css")
  
